@@ -1,0 +1,11 @@
+[package]
+name = "runtime"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+artichoke = { git = "https://github.com/artichoke/artichoke.git", default-features = false, features = ["backtrace"] }
+qed = "1.6.1" # const_cstr_from_cstr - also ensures valid CStr (NUL-terminated)
+termcolor = "1.1.0" # TODO: do we need this?

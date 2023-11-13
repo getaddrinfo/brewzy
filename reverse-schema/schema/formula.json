@@ -1,0 +1,2480 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "full_name": {
+            "type": "string"
+        },
+        "tap": {
+            "type": "string"
+        },
+        "oldname": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "oldnames": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "aliases": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "versioned_formulae": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "desc": {
+            "type": "string"
+        },
+        "license": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "homepage": {
+            "type": "string"
+        },
+        "versions": {
+            "type": "object",
+            "properties": {
+                "stable": {
+                    "type": "string"
+                },
+                "head": {
+                    "type": [
+                        "null",
+                        "string"
+                    ]
+                },
+                "bottle": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "bottle",
+                "head",
+                "stable"
+            ]
+        },
+        "urls": {
+            "type": "object",
+            "properties": {
+                "stable": {
+                    "type": "object",
+                    "properties": {
+                        "url": {
+                            "type": "string"
+                        },
+                        "tag": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "revision": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "using": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "checksum": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "checksum",
+                        "revision",
+                        "tag",
+                        "url",
+                        "using"
+                    ]
+                },
+                "head": {
+                    "type": "object",
+                    "properties": {
+                        "url": {
+                            "type": "string"
+                        },
+                        "branch": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "using": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "branch",
+                        "url",
+                        "using"
+                    ]
+                }
+            },
+            "required": [
+                "stable"
+            ]
+        },
+        "revision": {
+            "type": "integer"
+        },
+        "version_scheme": {
+            "type": "integer"
+        },
+        "bottle": {
+            "type": "object",
+            "properties": {
+                "stable": {
+                    "type": "object",
+                    "properties": {
+                        "rebuild": {
+                            "type": "integer"
+                        },
+                        "root_url": {
+                            "type": "string"
+                        },
+                        "files": {
+                            "type": "object",
+                            "properties": {
+                                "arm64_sonoma": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cellar": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sha256": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "cellar",
+                                        "sha256",
+                                        "url"
+                                    ]
+                                },
+                                "arm64_ventura": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cellar": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sha256": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "cellar",
+                                        "sha256",
+                                        "url"
+                                    ]
+                                },
+                                "arm64_monterey": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cellar": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sha256": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "cellar",
+                                        "sha256",
+                                        "url"
+                                    ]
+                                },
+                                "arm64_big_sur": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cellar": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sha256": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "cellar",
+                                        "sha256",
+                                        "url"
+                                    ]
+                                },
+                                "sonoma": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cellar": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sha256": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "cellar",
+                                        "sha256",
+                                        "url"
+                                    ]
+                                },
+                                "ventura": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cellar": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sha256": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "cellar",
+                                        "sha256",
+                                        "url"
+                                    ]
+                                },
+                                "monterey": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cellar": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sha256": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "cellar",
+                                        "sha256",
+                                        "url"
+                                    ]
+                                },
+                                "big_sur": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cellar": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sha256": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "cellar",
+                                        "sha256",
+                                        "url"
+                                    ]
+                                },
+                                "x86_64_linux": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cellar": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sha256": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "cellar",
+                                        "sha256",
+                                        "url"
+                                    ]
+                                },
+                                "catalina": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cellar": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sha256": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "cellar",
+                                        "sha256",
+                                        "url"
+                                    ]
+                                },
+                                "mojave": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cellar": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sha256": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "cellar",
+                                        "sha256",
+                                        "url"
+                                    ]
+                                },
+                                "high_sierra": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cellar": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sha256": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "cellar",
+                                        "sha256",
+                                        "url"
+                                    ]
+                                },
+                                "sierra": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cellar": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sha256": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "cellar",
+                                        "sha256",
+                                        "url"
+                                    ]
+                                },
+                                "el_capitan": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cellar": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sha256": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "cellar",
+                                        "sha256",
+                                        "url"
+                                    ]
+                                },
+                                "all": {
+                                    "type": "object",
+                                    "properties": {
+                                        "cellar": {
+                                            "type": "string"
+                                        },
+                                        "url": {
+                                            "type": "string"
+                                        },
+                                        "sha256": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "cellar",
+                                        "sha256",
+                                        "url"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "files",
+                        "rebuild",
+                        "root_url"
+                    ]
+                }
+            },
+            "required": [
+                "stable"
+            ]
+        },
+        "keg_only": {
+            "type": "boolean"
+        },
+        "keg_only_reason": {
+            "anyOf": [
+                {
+                    "type": "null"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "reason": {
+                            "type": "string"
+                        },
+                        "explanation": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "explanation",
+                        "reason"
+                    ]
+                }
+            ]
+        },
+        "options": {
+            "type": "array"
+        },
+        "build_dependencies": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "dependencies": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "test_dependencies": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "recommended_dependencies": {
+            "type": "array"
+        },
+        "optional_dependencies": {
+            "type": "array"
+        },
+        "uses_from_macos": {
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "bison": {
+                                "type": "string"
+                            },
+                            "flex": {
+                                "type": "string"
+                            },
+                            "m4": {
+                                "type": "string"
+                            },
+                            "python": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                ]
+                            },
+                            "expect": {
+                                "type": "string"
+                            },
+                            "perl": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                ]
+                            },
+                            "libxslt": {
+                                "type": "string"
+                            },
+                            "gperf": {
+                                "type": "string"
+                            },
+                            "llvm": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                ]
+                            },
+                            "bc": {
+                                "type": "string"
+                            },
+                            "ed": {
+                                "type": "string"
+                            },
+                            "cpio": {
+                                "type": "string"
+                            },
+                            "xz": {
+                                "type": "string"
+                            },
+                            "curl": {
+                                "type": "string"
+                            },
+                            "unzip": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                ]
+                            },
+                            "vim": {
+                                "type": "string"
+                            },
+                            "ruby": {
+                                "type": "string"
+                            },
+                            "zsh": {
+                                "anyOf": [
+                                    {
+                                        "type": "string"
+                                    },
+                                    {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                ]
+                            },
+                            "netcat": {
+                                "type": "string"
+                            },
+                            "tcl-tk": {
+                                "type": "string"
+                            },
+                            "sqlite": {
+                                "type": "string"
+                            },
+                            "zip": {
+                                "type": "string"
+                            },
+                            "pax": {
+                                "type": "string"
+                            },
+                            "zlib": {
+                                "type": "string"
+                            },
+                            "rsync": {
+                                "type": "string"
+                            },
+                            "expat": {
+                                "type": "string"
+                            },
+                            "pod2man": {
+                                "type": "string"
+                            },
+                            "libxml2": {
+                                "type": "string"
+                            },
+                            "swift": {
+                                "type": "string"
+                            },
+                            "mandoc": {
+                                "type": "string"
+                            },
+                            "lsof": {
+                                "type": "string"
+                            },
+                            "ncompress": {
+                                "type": "string"
+                            },
+                            "icu4c": {
+                                "type": "string"
+                            },
+                            "file-formula": {
+                                "type": "string"
+                            },
+                            "unifdef": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "uses_from_macos_bounds": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "since": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "requirements": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "cask": {
+                        "type": "null"
+                    },
+                    "download": {
+                        "type": "null"
+                    },
+                    "version": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "contexts": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "specs": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "cask",
+                    "contexts",
+                    "download",
+                    "name",
+                    "specs",
+                    "version"
+                ]
+            }
+        },
+        "conflicts_with": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "conflicts_with_reasons": {
+            "type": "array",
+            "items": {
+                "type": [
+                    "null",
+                    "string"
+                ]
+            }
+        },
+        "link_overwrite": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "caveats": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "installed": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "version": {
+                        "type": "string"
+                    },
+                    "used_options": {
+                        "type": "array"
+                    },
+                    "built_as_bottle": {
+                        "type": "boolean"
+                    },
+                    "poured_from_bottle": {
+                        "type": "boolean"
+                    },
+                    "time": {
+                        "type": "integer"
+                    },
+                    "runtime_dependencies": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "full_name": {
+                                    "type": "string"
+                                },
+                                "version": {
+                                    "type": "string"
+                                },
+                                "declared_directly": {
+                                    "type": "boolean"
+                                }
+                            },
+                            "required": [
+                                "declared_directly",
+                                "full_name",
+                                "version"
+                            ]
+                        }
+                    },
+                    "installed_as_dependency": {
+                        "type": "boolean"
+                    },
+                    "installed_on_request": {
+                        "type": "boolean"
+                    }
+                },
+                "required": [
+                    "built_as_bottle",
+                    "installed_as_dependency",
+                    "installed_on_request",
+                    "poured_from_bottle",
+                    "runtime_dependencies",
+                    "time",
+                    "used_options",
+                    "version"
+                ]
+            }
+        },
+        "linked_keg": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "pinned": {
+            "type": "boolean"
+        },
+        "outdated": {
+            "type": "boolean"
+        },
+        "deprecated": {
+            "type": "boolean"
+        },
+        "deprecation_date": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "deprecation_reason": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "disabled": {
+            "type": "boolean"
+        },
+        "disable_date": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "disable_reason": {
+            "type": [
+                "null",
+                "string"
+            ]
+        },
+        "post_install_defined": {
+            "type": "boolean"
+        },
+        "service": {
+            "anyOf": [
+                {
+                    "type": "null"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "run": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "macos": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "linux": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "run_type": {
+                            "type": "string"
+                        },
+                        "working_dir": {
+                            "type": "string"
+                        },
+                        "keep_alive": {
+                            "type": "object",
+                            "properties": {
+                                "always": {
+                                    "type": "boolean"
+                                },
+                                "successful_exit": {
+                                    "type": "boolean"
+                                },
+                                "crashed": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "log_path": {
+                            "type": "string"
+                        },
+                        "error_log_path": {
+                            "type": "string"
+                        },
+                        "environment_variables": {
+                            "type": "object",
+                            "properties": {
+                                "ARCHIVA_BASE": {
+                                    "type": "string"
+                                },
+                                "PATH": {
+                                    "type": "string"
+                                },
+                                "LANG": {
+                                    "type": "string"
+                                },
+                                "HOME": {
+                                    "type": "string"
+                                },
+                                "HBASE_HOME": {
+                                    "type": "string"
+                                },
+                                "HBASE_IDENT_STRING": {
+                                    "type": "string"
+                                },
+                                "HBASE_LOG_DIR": {
+                                    "type": "string"
+                                },
+                                "HBASE_LOG_PREFIX": {
+                                    "type": "string"
+                                },
+                                "HBASE_LOGFILE": {
+                                    "type": "string"
+                                },
+                                "HBASE_MASTER_OPTS": {
+                                    "type": "string"
+                                },
+                                "HBASE_NICENESS": {
+                                    "type": "string"
+                                },
+                                "HBASE_OPTS": {
+                                    "type": "string"
+                                },
+                                "HBASE_PID_DIR": {
+                                    "type": "string"
+                                },
+                                "HBASE_REGIONSERVER_OPTS": {
+                                    "type": "string"
+                                },
+                                "HBASE_ROOT_LOGGER": {
+                                    "type": "string"
+                                },
+                                "HBASE_SECURITY_LOGGER": {
+                                    "type": "string"
+                                },
+                                "INFLUXD_CONFIG_PATH": {
+                                    "type": "string"
+                                },
+                                "KETTLE_HOME": {
+                                    "type": "string"
+                                },
+                                "LAUNCH_PROGRAM_TCP_ADDRESS": {
+                                    "type": "string"
+                                },
+                                "GLASSFISH_HOME": {
+                                    "type": "string"
+                                },
+                                "LC_ALL": {
+                                    "type": "string"
+                                },
+                                "CONF_ENV_FILE": {
+                                    "type": "string"
+                                },
+                                "JBOSS_HOME": {
+                                    "type": "string"
+                                },
+                                "WILDFLY_HOME": {
+                                    "type": "string"
+                                },
+                                "SERVER_JVMFLAGS": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "interval": {
+                            "type": "integer"
+                        },
+                        "require_root": {
+                            "type": "boolean"
+                        },
+                        "cron": {
+                            "type": "string"
+                        },
+                        "sockets": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "object",
+                            "properties": {
+                                "macos": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "macos"
+                            ]
+                        },
+                        "process_type": {
+                            "type": "string"
+                        },
+                        "macos_legacy_timers": {
+                            "type": "boolean"
+                        },
+                        "input_path": {
+                            "type": "string"
+                        }
+                    }
+                }
+            ]
+        },
+        "tap_git_head": {
+            "type": "string"
+        },
+        "ruby_source_path": {
+            "type": "string"
+        },
+        "ruby_source_checksum": {
+            "type": "object",
+            "properties": {
+                "sha256": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "sha256"
+            ]
+        },
+        "variations": {
+            "type": "object",
+            "properties": {
+                "x86_64_linux": {
+                    "type": "object",
+                    "properties": {
+                        "dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "build_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "conflicts_with": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "conflicts_with_reasons": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "requirements": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "cask": {
+                                        "type": "null"
+                                    },
+                                    "download": {
+                                        "type": "null"
+                                    },
+                                    "version": {
+                                        "type": "null"
+                                    },
+                                    "contexts": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "specs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "cask",
+                                    "contexts",
+                                    "download",
+                                    "name",
+                                    "specs",
+                                    "version"
+                                ]
+                            }
+                        },
+                        "caveats": {
+                            "type": [
+                                "null",
+                                "string"
+                            ]
+                        },
+                        "keg_only": {
+                            "type": "boolean"
+                        },
+                        "keg_only_reason": {
+                            "anyOf": [
+                                {
+                                    "type": "null"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "reason": {
+                                            "type": "string"
+                                        },
+                                        "explanation": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "explanation",
+                                        "reason"
+                                    ]
+                                }
+                            ]
+                        },
+                        "head_dependencies": {
+                            "type": "object",
+                            "properties": {
+                                "build_dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "test_dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "recommended_dependencies": {
+                                    "type": "array"
+                                },
+                                "optional_dependencies": {
+                                    "type": "array"
+                                },
+                                "uses_from_macos": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "type": "string"
+                                            },
+                                            {
+                                                "type": "object",
+                                                "properties": {
+                                                    "flex": {
+                                                        "type": "string"
+                                                    },
+                                                    "gperf": {
+                                                        "type": "string"
+                                                    },
+                                                    "bison": {
+                                                        "type": "string"
+                                                    },
+                                                    "python": {
+                                                        "type": "string"
+                                                    },
+                                                    "perl": {
+                                                        "type": "string"
+                                                    },
+                                                    "unzip": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "uses_from_macos_bounds": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "since": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "build_dependencies",
+                                "dependencies",
+                                "optional_dependencies",
+                                "recommended_dependencies",
+                                "test_dependencies",
+                                "uses_from_macos",
+                                "uses_from_macos_bounds"
+                            ]
+                        },
+                        "test_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "disabled": {
+                            "type": "boolean"
+                        },
+                        "disable_date": {
+                            "type": "string"
+                        },
+                        "disable_reason": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "sonoma": {
+                    "type": "object",
+                    "properties": {
+                        "build_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "head_dependencies": {
+                            "type": "object",
+                            "properties": {
+                                "build_dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "test_dependencies": {
+                                    "type": "array"
+                                },
+                                "recommended_dependencies": {
+                                    "type": "array"
+                                },
+                                "optional_dependencies": {
+                                    "type": "array"
+                                },
+                                "uses_from_macos": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "type": "string"
+                                            },
+                                            {
+                                                "type": "object",
+                                                "properties": {
+                                                    "flex": {
+                                                        "type": "string"
+                                                    },
+                                                    "gperf": {
+                                                        "type": "string"
+                                                    },
+                                                    "bison": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "uses_from_macos_bounds": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "build_dependencies",
+                                "dependencies",
+                                "optional_dependencies",
+                                "recommended_dependencies",
+                                "test_dependencies",
+                                "uses_from_macos",
+                                "uses_from_macos_bounds"
+                            ]
+                        },
+                        "dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "arm64_sonoma": {
+                    "type": "object",
+                    "properties": {
+                        "build_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "head_dependencies": {
+                            "type": "object",
+                            "properties": {
+                                "build_dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "test_dependencies": {
+                                    "type": "array"
+                                },
+                                "recommended_dependencies": {
+                                    "type": "array"
+                                },
+                                "optional_dependencies": {
+                                    "type": "array"
+                                },
+                                "uses_from_macos": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "type": "string"
+                                            },
+                                            {
+                                                "type": "object",
+                                                "properties": {
+                                                    "flex": {
+                                                        "type": "string"
+                                                    },
+                                                    "gperf": {
+                                                        "type": "string"
+                                                    },
+                                                    "bison": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "uses_from_macos_bounds": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "build_dependencies",
+                                "dependencies",
+                                "optional_dependencies",
+                                "recommended_dependencies",
+                                "test_dependencies",
+                                "uses_from_macos",
+                                "uses_from_macos_bounds"
+                            ]
+                        },
+                        "dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "test_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "requirements": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "cask": {
+                                        "type": "null"
+                                    },
+                                    "download": {
+                                        "type": "null"
+                                    },
+                                    "version": {
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    },
+                                    "contexts": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "specs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "cask",
+                                    "contexts",
+                                    "download",
+                                    "name",
+                                    "specs",
+                                    "version"
+                                ]
+                            }
+                        },
+                        "caveats": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "ventura": {
+                    "type": "object",
+                    "properties": {
+                        "build_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "head_dependencies": {
+                            "type": "object",
+                            "properties": {
+                                "build_dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "test_dependencies": {
+                                    "type": "array"
+                                },
+                                "recommended_dependencies": {
+                                    "type": "array"
+                                },
+                                "optional_dependencies": {
+                                    "type": "array"
+                                },
+                                "uses_from_macos": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "type": "string"
+                                            },
+                                            {
+                                                "type": "object",
+                                                "properties": {
+                                                    "flex": {
+                                                        "type": "string"
+                                                    },
+                                                    "gperf": {
+                                                        "type": "string"
+                                                    },
+                                                    "bison": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "uses_from_macos_bounds": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "build_dependencies",
+                                "dependencies",
+                                "optional_dependencies",
+                                "recommended_dependencies",
+                                "test_dependencies",
+                                "uses_from_macos",
+                                "uses_from_macos_bounds"
+                            ]
+                        },
+                        "dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "arm64_ventura": {
+                    "type": "object",
+                    "properties": {
+                        "build_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "head_dependencies": {
+                            "type": "object",
+                            "properties": {
+                                "build_dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "test_dependencies": {
+                                    "type": "array"
+                                },
+                                "recommended_dependencies": {
+                                    "type": "array"
+                                },
+                                "optional_dependencies": {
+                                    "type": "array"
+                                },
+                                "uses_from_macos": {
+                                    "type": "array",
+                                    "items": {
+                                        "anyOf": [
+                                            {
+                                                "type": "string"
+                                            },
+                                            {
+                                                "type": "object",
+                                                "properties": {
+                                                    "flex": {
+                                                        "type": "string"
+                                                    },
+                                                    "gperf": {
+                                                        "type": "string"
+                                                    },
+                                                    "bison": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                "uses_from_macos_bounds": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "build_dependencies",
+                                "dependencies",
+                                "optional_dependencies",
+                                "recommended_dependencies",
+                                "test_dependencies",
+                                "uses_from_macos",
+                                "uses_from_macos_bounds"
+                            ]
+                        },
+                        "dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "test_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "requirements": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "cask": {
+                                        "type": "null"
+                                    },
+                                    "download": {
+                                        "type": "null"
+                                    },
+                                    "version": {
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    },
+                                    "contexts": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "specs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "cask",
+                                    "contexts",
+                                    "download",
+                                    "name",
+                                    "specs",
+                                    "version"
+                                ]
+                            }
+                        },
+                        "caveats": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "arm64_monterey": {
+                    "type": "object",
+                    "properties": {
+                        "build_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "head_dependencies": {
+                            "type": "object",
+                            "properties": {
+                                "build_dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "test_dependencies": {
+                                    "type": "array"
+                                },
+                                "recommended_dependencies": {
+                                    "type": "array"
+                                },
+                                "optional_dependencies": {
+                                    "type": "array"
+                                },
+                                "uses_from_macos": {
+                                    "type": "array"
+                                },
+                                "uses_from_macos_bounds": {
+                                    "type": "array"
+                                }
+                            },
+                            "required": [
+                                "build_dependencies",
+                                "dependencies",
+                                "optional_dependencies",
+                                "recommended_dependencies",
+                                "test_dependencies",
+                                "uses_from_macos",
+                                "uses_from_macos_bounds"
+                            ]
+                        },
+                        "test_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "requirements": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "cask": {
+                                        "type": "null"
+                                    },
+                                    "download": {
+                                        "type": "null"
+                                    },
+                                    "version": {
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    },
+                                    "contexts": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "specs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "cask",
+                                    "contexts",
+                                    "download",
+                                    "name",
+                                    "specs",
+                                    "version"
+                                ]
+                            }
+                        },
+                        "caveats": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "arm64_big_sur": {
+                    "type": "object",
+                    "properties": {
+                        "build_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "head_dependencies": {
+                            "type": "object",
+                            "properties": {
+                                "build_dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "test_dependencies": {
+                                    "type": "array"
+                                },
+                                "recommended_dependencies": {
+                                    "type": "array"
+                                },
+                                "optional_dependencies": {
+                                    "type": "array"
+                                },
+                                "uses_from_macos": {
+                                    "type": "array"
+                                },
+                                "uses_from_macos_bounds": {
+                                    "type": "array"
+                                }
+                            },
+                            "required": [
+                                "build_dependencies",
+                                "dependencies",
+                                "optional_dependencies",
+                                "recommended_dependencies",
+                                "test_dependencies",
+                                "uses_from_macos",
+                                "uses_from_macos_bounds"
+                            ]
+                        },
+                        "test_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "requirements": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "cask": {
+                                        "type": "null"
+                                    },
+                                    "download": {
+                                        "type": "null"
+                                    },
+                                    "version": {
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    },
+                                    "contexts": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "specs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "cask",
+                                    "contexts",
+                                    "download",
+                                    "name",
+                                    "specs",
+                                    "version"
+                                ]
+                            }
+                        },
+                        "caveats": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "catalina": {
+                    "type": "object",
+                    "properties": {
+                        "build_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "requirements": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "cask": {
+                                        "type": "null"
+                                    },
+                                    "download": {
+                                        "type": "null"
+                                    },
+                                    "version": {
+                                        "type": "string"
+                                    },
+                                    "contexts": {
+                                        "type": "array"
+                                    },
+                                    "specs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "cask",
+                                    "contexts",
+                                    "download",
+                                    "name",
+                                    "specs",
+                                    "version"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "mojave": {
+                    "type": "object",
+                    "properties": {
+                        "build_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "requirements": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "cask": {
+                                        "type": "null"
+                                    },
+                                    "download": {
+                                        "type": "null"
+                                    },
+                                    "version": {
+                                        "type": "string"
+                                    },
+                                    "contexts": {
+                                        "type": "array"
+                                    },
+                                    "specs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "cask",
+                                    "contexts",
+                                    "download",
+                                    "name",
+                                    "specs",
+                                    "version"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "high_sierra": {
+                    "type": "object",
+                    "properties": {
+                        "build_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "requirements": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "cask": {
+                                        "type": "null"
+                                    },
+                                    "download": {
+                                        "type": "null"
+                                    },
+                                    "version": {
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    },
+                                    "contexts": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "specs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "cask",
+                                    "contexts",
+                                    "download",
+                                    "name",
+                                    "specs",
+                                    "version"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "sierra": {
+                    "type": "object",
+                    "properties": {
+                        "build_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "caveats": {
+                            "type": "string"
+                        },
+                        "dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "requirements": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "cask": {
+                                        "type": "null"
+                                    },
+                                    "download": {
+                                        "type": "null"
+                                    },
+                                    "version": {
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    },
+                                    "contexts": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "specs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "cask",
+                                    "contexts",
+                                    "download",
+                                    "name",
+                                    "specs",
+                                    "version"
+                                ]
+                            }
+                        },
+                        "head_dependencies": {
+                            "type": "object",
+                            "properties": {
+                                "build_dependencies": {
+                                    "type": "array"
+                                },
+                                "dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "test_dependencies": {
+                                    "type": "array"
+                                },
+                                "recommended_dependencies": {
+                                    "type": "array"
+                                },
+                                "optional_dependencies": {
+                                    "type": "array"
+                                },
+                                "uses_from_macos": {
+                                    "type": "array"
+                                },
+                                "uses_from_macos_bounds": {
+                                    "type": "array"
+                                }
+                            },
+                            "required": [
+                                "build_dependencies",
+                                "dependencies",
+                                "optional_dependencies",
+                                "recommended_dependencies",
+                                "test_dependencies",
+                                "uses_from_macos",
+                                "uses_from_macos_bounds"
+                            ]
+                        }
+                    }
+                },
+                "el_capitan": {
+                    "type": "object",
+                    "properties": {
+                        "build_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "caveats": {
+                            "type": "string"
+                        },
+                        "dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "requirements": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "cask": {
+                                        "type": "null"
+                                    },
+                                    "download": {
+                                        "type": "null"
+                                    },
+                                    "version": {
+                                        "type": [
+                                            "null",
+                                            "string"
+                                        ]
+                                    },
+                                    "contexts": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "specs": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "cask",
+                                    "contexts",
+                                    "download",
+                                    "name",
+                                    "specs",
+                                    "version"
+                                ]
+                            }
+                        },
+                        "head_dependencies": {
+                            "type": "object",
+                            "properties": {
+                                "build_dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "dependencies": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "test_dependencies": {
+                                    "type": "array"
+                                },
+                                "recommended_dependencies": {
+                                    "type": "array"
+                                },
+                                "optional_dependencies": {
+                                    "type": "array"
+                                },
+                                "uses_from_macos": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "bison": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "bison"
+                                        ]
+                                    }
+                                },
+                                "uses_from_macos_bounds": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "build_dependencies",
+                                "dependencies",
+                                "optional_dependencies",
+                                "recommended_dependencies",
+                                "test_dependencies",
+                                "uses_from_macos",
+                                "uses_from_macos_bounds"
+                            ]
+                        }
+                    }
+                },
+                "big_sur": {
+                    "type": "object",
+                    "properties": {
+                        "build_dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "dependencies": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "head_dependencies": {
+            "type": "object",
+            "properties": {
+                "build_dependencies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "dependencies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "test_dependencies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "recommended_dependencies": {
+                    "type": "array"
+                },
+                "optional_dependencies": {
+                    "type": "array"
+                },
+                "uses_from_macos": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "bison": {
+                                        "type": "string"
+                                    },
+                                    "flex": {
+                                        "type": "string"
+                                    },
+                                    "gperf": {
+                                        "type": "string"
+                                    },
+                                    "m4": {
+                                        "type": "string"
+                                    },
+                                    "libxslt": {
+                                        "type": "string"
+                                    },
+                                    "python": {
+                                        "type": "string"
+                                    },
+                                    "perl": {
+                                        "type": "string"
+                                    },
+                                    "netcat": {
+                                        "type": "string"
+                                    },
+                                    "ruby": {
+                                        "type": "string"
+                                    },
+                                    "unzip": {
+                                        "type": "string"
+                                    },
+                                    "xz": {
+                                        "type": "string"
+                                    },
+                                    "expect": {
+                                        "type": "string"
+                                    },
+                                    "tcl-tk": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                "uses_from_macos_bounds": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "since": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "required": [
+                "build_dependencies",
+                "dependencies",
+                "optional_dependencies",
+                "recommended_dependencies",
+                "test_dependencies",
+                "uses_from_macos",
+                "uses_from_macos_bounds"
+            ]
+        }
+    },
+    "required": [
+        "aliases",
+        "bottle",
+        "build_dependencies",
+        "caveats",
+        "conflicts_with",
+        "conflicts_with_reasons",
+        "dependencies",
+        "deprecated",
+        "deprecation_date",
+        "deprecation_reason",
+        "desc",
+        "disable_date",
+        "disable_reason",
+        "disabled",
+        "full_name",
+        "homepage",
+        "installed",
+        "keg_only",
+        "keg_only_reason",
+        "license",
+        "link_overwrite",
+        "linked_keg",
+        "name",
+        "oldname",
+        "oldnames",
+        "optional_dependencies",
+        "options",
+        "outdated",
+        "pinned",
+        "post_install_defined",
+        "recommended_dependencies",
+        "requirements",
+        "revision",
+        "ruby_source_checksum",
+        "ruby_source_path",
+        "service",
+        "tap",
+        "tap_git_head",
+        "test_dependencies",
+        "urls",
+        "uses_from_macos",
+        "uses_from_macos_bounds",
+        "variations",
+        "version_scheme",
+        "versioned_formulae",
+        "versions"
+    ]
+}

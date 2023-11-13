@@ -1,0 +1,7 @@
+.venv/
+priv/
+.elixir_ls
+
+
+# my local copy of brew, artichoke used for reference
+references/
