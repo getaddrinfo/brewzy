@@ -1,7 +1,14 @@
 defmodule Brew.Cache.Formulae do
   use GenServer
+  alias Brew.Job.Syncer.Data.Formula
+  alias Brew.Cache.Formulae.ETS
 
-  @parent :brew_cache_formulae
+  @moduledoc """
+  Represents a cleaner (and protective) interface for interacting
+  with the underlying ETS table
+  """
+
+  @should_produce_raw Mix.env() != :prod
 
   defmodule State do
     defstruct [:table]
@@ -19,6 +26,10 @@ defmodule Brew.Cache.Formulae do
     GenServer.call(__MODULE__, {:set, new})
   end
 
+  def get(name) do
+    GenServer.call(__MODULE__, {:get_by_name, name})
+  end
+
   def by_name(name) do
     GenServer.call(__MODULE__, {:lookup_name, name})
   end
@@ -27,173 +38,72 @@ defmodule Brew.Cache.Formulae do
     GenServer.call(__MODULE__, {:lookup_hash, hash})
   end
 
-  @spec init(any()) :: {:ok, State.t()}
+  @spec init(any()) :: {:ok, any()}
   @impl true
   def init(_) do
-    tab = :ets.new(
-      @parent,
-      [:ordered_set, :protected, :named_table]
-    )
+    ETS.create()
 
-    {:ok, %State{table: tab}}
+    if @should_produce_raw do
+      :ets.new(:brew_formulae_raw, [
+        :set,
+        :named_table,
+        :public
+      ])
+    end
+
+    {:ok, %{}}
   end
 
   @impl true
   def handle_call({:set, data}, _from, state) do
-    mapped = Enum.map(data, fn it -> {
-      Map.get(it, "name"),
-      Map.get(it, "hash"),
-      it
-    } end)
+    if @should_produce_raw do
+      :ets.insert(:brew_formulae_raw, data |> Enum.map(
+        fn %Formula{name: name} = formula -> {name, formula} end
+      ))
+    end
 
-    :ets.insert(@parent, mapped)
+    # TODO: this can be more efficient (group all inserts
+    # for each table into one big insert statement...)
+    # data
+    # |> Enum.map(&ETS.into/1)
+    # |> Enum.each(
+    #   fn insertables -> insertables |> Enum.each(
+    #     fn {table, data} -> :ets.insert(table, data) end
+    #   ) end
+    # )
 
     {:reply, :ok, state}
   end
 
   @impl true
-  def handle_call(:get_table_reference, _from, state) do
-    {:reply, {:ok, @parent}, state}
+  def handle_call({:get_by_name, name}, _from, state) do
+    with {:ok, base} <- ets_get(name),
+         {:ok, aliases} <- ets_get_bottles(name) do
+      {:reply, {:ok, {base, aliases}}, state}
+    else
+      {:error, :miss} -> {:reply, {:error, :miss}, state}
+    end
+
+    {:reply, nil, state}
   end
 
-  @impl true
-  def handle_call({:lookup_name, name}, _from, state) do
-    res = case :ets.lookup(@parent, name) do
-      [{^name, hash, data}] ->
-        data = data
-        |> Map.put("hash", hash)
-        |> Map.put("name", name)
-
-        {:ok, data}
-      [] -> {:error, :miss}
+  defp ets_get(name) do
+    case :ets.lookup(:brew_cache_formulae, name) do
+      [data] -> {:ok, data}
+      [] -> {:error, :get_name_miss}
     end
-
-    {:reply, res, state}
   end
 
-
-  @impl true
-  def handle_call(:clear, _from, state) do
-    :ets.delete_all_objects(@parent)
-
-    {:reply, :ok, state}
+  defp ets_get_bottles(_name) do
+    {:error, :get_bottles_miss}
   end
 
-  @impl true
-  def handle_call({:lookup_hash, hash}, _from, state) do
-    res = case :ets.match_object(@parent, {:"$0", hash, :"$2"}) do
-      [{^hash, name, data}] ->
-        data = data
-        |> Map.put("hash", hash)
-        |> Map.put("name", name)
-
-        {:ok, data}
-      [] -> {:error, :miss}
+  def dump do
+    if not @should_produce_raw do
+      raise "ENV == :prod"
     end
 
-    {:reply, res, state}
-  end
-
-  defmodule ETS do
-    @moduledoc """
-    This module handles parsing into many tuples that are inserted into ETS. Whilst it would be easier
-    to simply store the raw document in ets, and operate on that - we can't easily match values from it.
-
-    The ETS (Brew.Cache.Casks.ETS) splits the raw data into separate parts that can be inserted into different ETS tables.
-    Each part of data will include a reference back up to the parent document, which can then be used to build the whole document
-    and return it to the caller.
-
-    The following ETS tables are used (and are all prefixed with brew_cache_formulae):
-    - aliases
-    - urls
-    - bottles
-    - dependencies
-    - test_dependencies
-    - recommended_dependencies
-    - optional_dependencies
-    - macos_usages
-    - requirements
-    - conflicts
-    - link_overwrites (?)
-    - services
-    - variations
-    - head_dependencies
-
-    Data is produced in the following format(s):
-    {
-      table :: :ets.table(),
-      {
-        pkey :: any(),
-        ...rest:: any()
-      }
-    }
-
-    or
-
-    {
-      table :: :ets.table(),
-      [
-        {
-          pkey :: any(),
-          ...rest :: any()
-        },
-        ...
-      ]
-    }
-    """
-
-    def into(source), do: [
-      base(source),
-    ]
-
-    defp base(document) do
-      {get, _} = getter(document)
-
-      {:brew_cache_formulae, {
-        get.("name"), # the name of the package (primary key)
-        get.("full_name"), # the full name of the package (if applicable)
-        get.("tap"), # the tap that this package belongs to (we keep other taps as well)
-        get.("oldname"), # the previous name of the package
-        get.("oldnames"), # the previous names of the package (TODO: investigate)
-        get.("aliases"), # aliases for the package (TODO: reverse lookup?)
-        get.("versioned_formulae"), # TODO: split out?
-        get.("desc"), # description of the package
-        get.("license"), # license type of the package
-        get.("homepage"), # the homepage of the package
-        {get.("stable"), get.("head"), get.("bottle")}, # the git hashes (I think) of the current versions, plus if it is a botle
-        get.("revision"), # the current revision
-        {get.("keg_only"), get.("keg_only_reason")}, # if the formula is keg only (is_keg_only)
-        get.("options"), # options for the keg
-        get.("pinned"), # if it's pinned (is_pinned)
-        get.("outdated"), # if it's outdated (is_outdated)
-        {get.("deprecated"), get.("deprecation_date"), get.("deprecation_reason")}, # {is_deprecated, date, reason}
-        {get.("disabled"), get.("disable_date"), get.("disable_reason")}, # {is_disabled, date, reason}
-        get.("post_install_defined"), # has_post_install_defined
-        get.("tap_git_head"), # the head of the git repo for the tap
-        {get.("ruby_source_checksum"), get.("ruby_source_path")}, # the checksum and path of the definition of this
-      }}
-    end
-
-    defp aliases(source) do
-      {get, _} = getter(source)
-      name = get.("name")
-
-      # TODO: make sure this is ideal
-      {:brew_cache_formulae_aliases, Enum.map(get.("aliases"), fn (it) -> {
-        it,
-        name
-      } end)}
-    end
-
-    defp bottles(source) do
-
-    end
-
-    defp getter(source) do
-      {
-        fn (key) -> Map.get(key, source, nil) end,
-        fn (key, default) -> Map.get(key, source, default) end
-      }
-    end
+    :ets.tab2list(:brew_formulae_raw)
+    |> Enum.map(fn {_, data} -> data end)
   end
 end
