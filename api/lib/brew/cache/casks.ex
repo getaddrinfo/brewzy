@@ -45,6 +45,8 @@ defmodule Brew.Cache.Casks do
 
   @impl true
   def handle_call({:set, data}, _from, %State{table: table} = state) do
+
+
     mapped = Enum.map(data, fn it -> {
       Map.get(it, "name"),
       Map.get(it, "hash"),
@@ -54,11 +56,6 @@ defmodule Brew.Cache.Casks do
     :ets.insert(table, mapped)
 
     {:reply, :ok, state}
-  end
-
-  @impl true
-  def handle_call(:get_table_reference, _from, %State{table: table} = state) do
-    {:reply, {:ok, table}, state}
   end
 
   @impl true

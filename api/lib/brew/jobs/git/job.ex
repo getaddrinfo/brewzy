@@ -1,7 +1,6 @@
 defmodule Brew.Job.Git do
   alias Brew.Job.Git.Source
 
-  # TODO: add more?
   @sources [
     Source.for("https://github.com/mongodb/homebrew-brew", "mongodb"),
     Source.for("https://github.com/homebrew-ffmpeg/homebrew-ffmpeg", "ffmpeg"),
@@ -29,6 +28,11 @@ defmodule Brew.Job.Git do
     send(__MODULE__, @force)
   end
 
+  @spec timings() :: {:ok, {non_neg_integer(), DateTime.t()}}
+  def timings do
+    GenServer.call(__MODULE__, :timings)
+  end
+
   @impl true
   def setup(_) do
     prepare()
@@ -38,7 +42,7 @@ defmodule Brew.Job.Git do
 
   @impl true
   def perform do
-    # sync them
+    # sync them (spawn as individual tasks...)
     pending = @sources |> Enum.map(&sync/1)
     Task.yield_many(pending, timeout: 5000) # wait for them all to be finished
 
@@ -74,9 +78,14 @@ defmodule Brew.Job.Git do
     end)
   end
 
-  def prepare do
+  defp prepare do
     if !File.dir?(@dir) do
       :ok = File.mkdir(@dir)
     end
+  end
+
+  @spec sources() :: [Brew.Job.Git.Source.t(), ...]
+  def sources do
+    @sources
   end
 end
